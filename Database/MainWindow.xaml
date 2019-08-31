@@ -1,0 +1,42 @@
+﻿<Window x:Class="Database.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Database"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" SizeToContent="WidthAndHeight">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="110*" />
+            <ColumnDefinition Width="110*" />
+            <ColumnDefinition Width="110*" />
+            <ColumnDefinition Width="110*" />
+            <ColumnDefinition Width="110*" />
+            <ColumnDefinition Width="110*" />
+            <ColumnDefinition Width="110*" />
+            <ColumnDefinition Width="110*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*" />
+            <RowDefinition Height="379*" />
+        </Grid.RowDefinitions>
+        <Button Margin="10,10,0,0" Grid.Row="0" VerticalAlignment="Center"  Grid.Column="0" Click="AddSt_Click" >AddStudent</Button>
+
+        <Button Margin="10,10,0,0" Grid.Row="0" VerticalAlignment="Center"  Grid.Column="1" Click="RmSt_Click">RemoveStudent</Button>
+
+        <Button Margin="10,10,0,0" Grid.Row="0" VerticalAlignment="Center"  Grid.Column="2" Click="AddMr_Click" >Add Mark</Button>
+
+        <Button Margin="10,10,0,0" Grid.Row="0" VerticalAlignment="Center"  Grid.Column="3" Click="ShowMarks_Click" >Show Marks</Button>
+
+        <Button Margin="10,10,0,0" Grid.Row="0" VerticalAlignment="Center"  Grid.Column="4" Click="SaveToFile_Click"  >SaveToFile</Button>
+
+        <Button Margin="10,10,0,0" Grid.Row="0" Grid.Column="5" Click="LoadFromFiel_Click" VerticalAlignment="Center" >LoadFromFile</Button>
+
+        <Button Margin="10,10,0,0" Grid.Row="0" Grid.Column="6" Click="SaveToXML_Click" VerticalAlignment="Center" >SaveToXML</Button>
+
+        <Button Margin="10,10,0,0" Grid.Row="0" Grid.Column="8" Click="LoadFromXML_Click"  VerticalAlignment="Center" >LoadFromXML</Button>
+
+        <DataGrid  Margin="5,5" Grid.Row="1"  IsReadOnly="True" Grid.Column="0" Grid.ColumnSpan="8" x:Name="DG" ColumnWidth="30*" MaxColumnWidth="100" ></DataGrid>
+    </Grid>
+</Window>
