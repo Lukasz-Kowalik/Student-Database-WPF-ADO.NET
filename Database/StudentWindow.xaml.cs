@@ -28,7 +28,7 @@ namespace Database
         {
             if (!Regex.IsMatch(tbFirstName.Text, @"^\p{Lu}\p{Ll}{1,12}$") ||
                 !Regex.IsMatch(tbSurName.Text, @"^\p{Lu}\p{Ll}{1,12}$") ||
-                !Regex.IsMatch(tbFaculty.Text, @"^\p{Lu}\p{Ll}{1,12}$") ||
+                !Regex.IsMatch(tbFaculty.Text, @"^\p{Lu}{1,12}$") ||
                 !Regex.IsMatch(tbStudentNo.Text, @"^[0-9]{4,10}$"))
             {
                 MessageBox.Show("Incorrect data!");
