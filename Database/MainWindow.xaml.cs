@@ -35,6 +35,7 @@ namespace Database
             if (addSt.ShowDialog() == true)
             {
                 list.Add(addSt.student);
+                MessageBox.Show("Dodano osobe");
             }
             DG.Items.Refresh();
         }
