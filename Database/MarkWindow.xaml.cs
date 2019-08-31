@@ -19,8 +19,8 @@ namespace Database
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (
-                (Regex.IsMatch(MarkDisplay.Text, @"^[2-5],[0,5]") ||Regex.IsMatch(MarkDisplay.Text, @"^[2-6]"))
-                &&!Regex.IsMatch(MarkDisplay.Text, @"^6,")
+                (Regex.IsMatch(MarkDisplay.Text, @"^[2-5],[0,5]") || Regex.IsMatch(MarkDisplay.Text, @"^[2-6]"))
+                && !Regex.IsMatch(MarkDisplay.Text, @"^6,")
                 )
             {
                 student.AddMark(new Mark(double.Parse(MarkDisplay.Text)));

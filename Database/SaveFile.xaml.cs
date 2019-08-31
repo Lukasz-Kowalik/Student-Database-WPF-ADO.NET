@@ -1,7 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows;
 using System.Xml;
 using System.Xml.Serialization;
@@ -22,12 +21,10 @@ namespace Database
                 using (Stream stream = File.Open(file.FileName,
                     FileMode.OpenOrCreate))
                 {
-                  
                     using (StreamWriter sw = new StreamWriter(stream))
                     {
                         foreach (var student in list)
                         {
-                           
                             Save(student, sw);
                         }
 

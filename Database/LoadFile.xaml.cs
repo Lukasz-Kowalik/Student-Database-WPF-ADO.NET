@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
 using System.Windows;
 using System.Xml;
 using System.Xml.Serialization;
@@ -11,7 +10,6 @@ namespace Database
 {
     public partial class MainWindow : Window
     {
-      
         private void LoadFromXML_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog file = new OpenFileDialog();
@@ -74,7 +72,5 @@ namespace Database
                 MessageBox.Show("Unknown error: " + ex.Message);
             }
         }
-
-        
     }
 }

@@ -7,7 +7,7 @@ namespace Database
     {
         public double Grades { get; set; }
 
-        public Mark(double mark=0)
+        public Mark(double mark = 0)
         {
             this.Grades = mark;
         }

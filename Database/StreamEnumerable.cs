@@ -14,11 +14,13 @@ namespace Database
             : IEnumerable<T>
         {
             private StreamReader _stream;
-            private object _current=null;
+            private object _current = null;
+
             public StreamEnumerable(StreamReader stream)
             {
                 _stream = stream;
             }
+
             public bool MoveNext()
             {
                 if (!_stream.EndOfStream)
@@ -28,24 +30,24 @@ namespace Database
                 }
                 return false;
             }
+
             public object Current()
             {
                 return _current;
             }
+
             public IEnumerator<T> GetEnumerator()
             {
                 while (MoveNext())
                 {
-                     yield return (T)_current;
+                    yield return (T)_current;
                 }
-
             }
 
             IEnumerator IEnumerable.GetEnumerator()
             {
                 return GetEnumerator();
             }
-
 
             public T Load<T>(StreamReader sr) where T : new()
             {
@@ -70,10 +72,5 @@ namespace Database
                 return default(T);
             }
         }
-
-
-
-
     }
-
 }
