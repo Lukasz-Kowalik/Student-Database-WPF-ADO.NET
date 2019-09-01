@@ -78,7 +78,6 @@
       <DependentUpon>MarkWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="SaveFile.xaml.cs" />
-    <Compile Include="ShowDialog.cs" />
     <Compile Include="ShowMarks.xaml.cs">
       <DependentUpon>ShowMarks.xaml</DependentUpon>
     </Compile>
