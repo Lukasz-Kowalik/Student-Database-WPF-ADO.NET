@@ -49,23 +49,23 @@ namespace Database
             DG.Items.Refresh();
         }
 
-        private void AddMr_Click(object sender, RoutedEventArgs e)
+        private void AddGrade_Click(object sender, RoutedEventArgs e)
         {
             if (DG.SelectedItem is Student)
             {
                 Student s = (Student)DG.SelectedItem;
-                MarkWindow mark = new MarkWindow(s);
-                mark.Show();
+                MarkWindow grade = new MarkWindow(s);
+                grade.Show();
             }
         }
 
-        private void ShowMarks_Click(object sender, RoutedEventArgs e)
+        private void ShowGrades_Click(object sender, RoutedEventArgs e)
         {
             if (DG.SelectedItem is Student)
             {
                 Student s = (Student)DG.SelectedItem;
-                ShowMarks addMark = new ShowMarks(s);
-                addMark.Show();
+                ShowGrades grades = new ShowGrades(s);
+                grades.Show();
             }
         }
     }

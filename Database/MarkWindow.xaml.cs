@@ -23,7 +23,7 @@ namespace Database
                 && !Regex.IsMatch(MarkDisplay.Text, @"^6,")
                 )
             {
-                student.AddMark(new Mark(double.Parse(MarkDisplay.Text)));
+                student.AddGrad(new Grade(double.Parse(MarkDisplay.Text)));
                 this.Close();
             }
             else

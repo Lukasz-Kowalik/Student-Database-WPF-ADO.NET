@@ -73,13 +73,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="LoadFile.xaml.cs" />
-    <Compile Include="Mark.cs" />
+    <Compile Include="Grade.cs" />
     <Compile Include="MarkWindow.xaml.cs">
       <DependentUpon>MarkWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="SaveFile.xaml.cs" />
-    <Compile Include="ShowMarks.xaml.cs">
-      <DependentUpon>ShowMarks.xaml</DependentUpon>
+    <Compile Include="ShowGrades.xaml.cs">
+      <DependentUpon>ShowGrades.xaml</DependentUpon>
     </Compile>
     <Compile Include="StreamEnumerable.cs" />
     <Compile Include="Student.cs" />
@@ -102,7 +102,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ShowMarks.xaml">
+    <Page Include="ShowGrades.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

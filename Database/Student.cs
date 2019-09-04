@@ -10,7 +10,7 @@ namespace Database
         public string FirstName { get; set; }
         public string Faculty { get; set; }
         public int StudentNo { get; set; }
-        private List<Mark> Marks { get; }
+        private List<Grade> Grades { get; }
 
         public Student()
         {
@@ -23,17 +23,17 @@ namespace Database
             FirstName = firstName;
             Faculty = faculty;
             StudentNo = studentNo;
-            Marks = new List<Mark>();
+            Grades = new List<Grade>();
         }
 
-        public void AddMark(Mark m)
+        public void AddGrad(Grade m)
         {
-            Marks.Add(m);
+            Grades.Add(m);
         }
 
-        public List<Mark> getMarks()
+        public List<Grade> GetGrades()
         {
-            return Marks;
+            return Grades;
         }
     }
 }
