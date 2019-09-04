@@ -74,8 +74,8 @@
     </ApplicationDefinition>
     <Compile Include="LoadFile.xaml.cs" />
     <Compile Include="Grade.cs" />
-    <Compile Include="MarkWindow.xaml.cs">
-      <DependentUpon>MarkWindow.xaml</DependentUpon>
+    <Compile Include="GradeWindow.xaml.cs">
+      <DependentUpon>GradeWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="SaveFile.xaml.cs" />
     <Compile Include="ShowGrades.xaml.cs">
@@ -98,7 +98,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MarkWindow.xaml">
+    <Page Include="GradeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
