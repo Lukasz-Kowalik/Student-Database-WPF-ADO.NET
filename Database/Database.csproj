@@ -15,6 +15,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -27,7 +28,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -72,16 +72,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="LoadFile.xaml.cs" />
-    <Compile Include="Grade.cs" />
-    <Compile Include="GradeWindow.xaml.cs">
+    <Compile Include="ToFile\LoadFile.xaml.cs" />
+    <Compile Include="Grade\Grade.cs" />
+    <Compile Include="Grade\GradeWindow.xaml.cs">
       <DependentUpon>GradeWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SaveFile.xaml.cs" />
-    <Compile Include="ShowGrades.xaml.cs">
+    <Compile Include="ToFile\SaveFile.xaml.cs" />
+    <Compile Include="Grade\ShowGrades.xaml.cs">
       <DependentUpon>ShowGrades.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StreamEnumerable.cs" />
+    <Compile Include="ToFile\StreamEnumerable.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="StudentWindow.xaml.cs">
       <DependentUpon>StudentWindow.xaml</DependentUpon>
@@ -98,11 +98,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="GradeWindow.xaml">
+    <Page Include="Grade\GradeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ShowGrades.xaml">
+    <Page Include="Grade\ShowGrades.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -149,5 +149,15 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="StudentsDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="StudentsDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>StudentsDB.mdf</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
