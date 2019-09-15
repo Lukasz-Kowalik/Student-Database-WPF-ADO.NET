@@ -14,18 +14,15 @@ namespace Database
 
         public MainWindow()
         {
-            list = new List<Student>()
-            {
-                new Student("Kowalski","Jan",1033,"WIMII"),
-                new Student("Nowak","Michal",1013,"WIMII"),
-                new Student("Makieta","Jacek",1021,"WIMII")
-            };
+            list = new List<Student>();
             InitializeComponent();
             DG.Columns.Add(new DataGridTextColumn() { Header = "Imie", Binding = new Binding("FirstName") });
             DG.Columns.Add(new DataGridTextColumn() { Header = "Nazwisko", Binding = new Binding("SurName") });
             DG.Columns.Add(new DataGridTextColumn() { Header = "NrIneksu", Binding = new Binding("StudentNo") });
             DG.Columns.Add(new DataGridTextColumn() { Header = "Wydział", Binding = new Binding("Faculty") });
             DG.AutoGenerateColumns = false;
+
+            list = DataBase.SqlStudentSelect();
             DG.ItemsSource = list;
         }
 

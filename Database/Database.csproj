@@ -72,6 +72,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataBase.cs" />
     <Compile Include="ToFile\LoadFile.xaml.cs" />
     <Compile Include="Grade\Grade.cs" />
     <Compile Include="Grade\GradeWindow.xaml.cs">
@@ -150,14 +151,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="StudentsDB.mdf">
+    <Content Include="DataBase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="StudentsDB_log.ldf">
+    <Content Include="DataBase_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>StudentsDB.mdf</DependentUpon>
+      <DependentUpon>DataBase.mdf</DependentUpon>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
