@@ -31,8 +31,8 @@ namespace Database
             StudentWindow addSt = new StudentWindow();
             if (addSt.ShowDialog() == true)
             {
-                list.Add(addSt.student);
-                MessageBox.Show("Dodano osobe");
+                list.Add(addSt.Student);
+                MessageBox.Show("Added student");
             }
             DG.Items.Refresh();
         }
@@ -51,7 +51,7 @@ namespace Database
             if (DG.SelectedItem is Student)
             {
                 Student s = (Student)DG.SelectedItem;
-                MarkWindow grade = new MarkWindow(s);
+                GradeWindow grade = new GradeWindow(s);
                 grade.Show();
             }
         }
@@ -63,6 +63,7 @@ namespace Database
                 Student s = (Student)DG.SelectedItem;
                 ShowGrades grades = new ShowGrades(s);
                 grades.Show();
+                
             }
         }
     }

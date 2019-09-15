@@ -1,15 +1,15 @@
 ﻿using System;
+using System.Windows.Data;
 
 namespace Database
 {
-    [Serializable]
+
     public sealed class Grade
     {
-        public double Grades { get; set; }
-
-        public Grade(double grade = 0)
+        public double gradeValue { get;}
+        public Grade(double grade)
         {
-            this.Grades = grade;
+            gradeValue = grade;
         }
     }
 }

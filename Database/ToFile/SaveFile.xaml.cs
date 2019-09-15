@@ -28,7 +28,7 @@ namespace Database
                             Save(student, sw);
                         }
 
-                        MessageBox.Show("Plik zapisany");
+                        MessageBox.Show("File saved");
                     }
                 }
             }
@@ -48,7 +48,7 @@ namespace Database
                     XmlSerializer serializer = new XmlSerializer(list.GetType());
                     serializer.Serialize(doc, list);
 
-                    MessageBox.Show("XML zapisany");
+                    MessageBox.Show("XML saved");
                 }
             }
         }
