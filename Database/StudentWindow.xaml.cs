@@ -8,20 +8,12 @@ namespace Database
     /// </summary>
     public partial class StudentWindow : Window
     {
-        public Student student;
+        public Student Student { get; }
 
-        public StudentWindow(Student student = null)
+        public StudentWindow()
         {
             InitializeComponent();
-
-            if (student != null)
-            {
-                tbFirstName.Text = student.FirstName;
-                tbSurName.Text = student.SurName;
-                tbStudentNo.Text = student.StudentNo.ToString();
-                tbFaculty.Text = student.Faculty;
-            }
-            this.student = student ?? new Student();
+            this.Student = new Student();
         }
 
         private void BtnOK_Click(object sender, RoutedEventArgs e)
@@ -34,10 +26,10 @@ namespace Database
                 MessageBox.Show("Incorrect data!");
                 return;
             }
-            student.FirstName = tbFirstName.Text;
-            student.SurName = tbSurName.Text;
-            student.StudentNo = int.Parse(tbStudentNo.Text);
-            student.Faculty = tbFaculty.Text;
+            Student.FirstName = tbFirstName.Text;
+            Student.SurName = tbSurName.Text;
+            Student.StudentNo = int.Parse(tbStudentNo.Text);
+            Student.Faculty = tbFaculty.Text;
             this.DialogResult = true;
         }
 
