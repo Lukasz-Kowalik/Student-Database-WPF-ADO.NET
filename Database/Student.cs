@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Database
 {
@@ -10,8 +11,8 @@ namespace Database
         public string FirstName { get; set; }
         public string Faculty { get; set; }
         public int StudentNo { get; set; }
-        private List<Grade> Grades { get; }
-
+        private ObservableCollection<Grade> Grades { get; }
+   
         public Student()
         {
         }
@@ -23,7 +24,7 @@ namespace Database
             FirstName = firstName;
             Faculty = faculty;
             StudentNo = studentNo;
-            Grades = new List<Grade>();
+            Grades = new ObservableCollection<Grade>();
         }
 
         public void AddGrad(Grade m)
@@ -31,7 +32,7 @@ namespace Database
             Grades.Add(m);
         }
 
-        public List<Grade> GetGrades()
+        public ObservableCollection<Grade> GetGrades()
         {
             return Grades;
         }
