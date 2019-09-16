@@ -6,24 +6,24 @@ namespace Database
     /// <summary>
     /// Interaction logic for MarkWindow.xaml
     /// </summary>
-    public partial class MarkWindow : Window
+    public partial class GradeWindow : Window
     {
-        private Student student;
+        private Student _student;
 
-        public MarkWindow(Student s)
+        public GradeWindow(Student s)
         {
             InitializeComponent();
-            student = s;
+            _student = s;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (
-                (Regex.IsMatch(MarkDisplay.Text, @"^[2-5],[0,5]") || Regex.IsMatch(MarkDisplay.Text, @"^[2-6]"))
-                && !Regex.IsMatch(MarkDisplay.Text, @"^6,")
-                )
+                (Regex.IsMatch(GradeDisplay.Text, @"^[2-5],[0,5]")||Regex.IsMatch(GradeDisplay.Text, @"^[2-5]"))&& 
+                !(Regex.IsMatch(GradeDisplay.Text, @"5,5")||Regex.IsMatch(GradeDisplay.Text, @"\d\d"))
+               )
             {
-                student.AddGrad(new Grade(double.Parse(MarkDisplay.Text)));
+                _student.AddGrad(new Grade(double.Parse(GradeDisplay.Text)));
                 this.Close();
             }
             else
