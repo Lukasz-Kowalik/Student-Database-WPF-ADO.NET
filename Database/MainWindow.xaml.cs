@@ -32,6 +32,7 @@ namespace Database
             if (addSt.ShowDialog() == true)
             {
                 list.Add(addSt.Student);
+                DataBase.SqlStudentInsert(addSt.Student);
                 MessageBox.Show("Added student");
             }
             DG.Items.Refresh();
