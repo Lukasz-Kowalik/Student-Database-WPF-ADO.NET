@@ -10,7 +10,7 @@ namespace Database
 {
     internal static class DataBase
     {
-        private static string DBConectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=P:\dev\Visual Studio programs\Database\Database\DataBase.mdf;Integrated Security=True";
+        private static string DBConectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=P:\dev\Visual Studio programs\Database\Database\DB\DataBase.mdf;Integrated Security=True";
         public static List<Student> SqlStudentSelect()
         {
             var students = new List<Student>();

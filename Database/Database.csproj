@@ -72,7 +72,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DataBase.cs" />
+    <Compile Include="DB\DataBase.cs" />
+    <Compile Include="Student\Student.cs" />
     <Compile Include="ToFile\LoadFile.xaml.cs" />
     <Compile Include="Grade\Grade.cs" />
     <Compile Include="Grade\GradeWindow.xaml.cs">
@@ -83,8 +84,7 @@
       <DependentUpon>ShowGrades.xaml</DependentUpon>
     </Compile>
     <Compile Include="ToFile\StreamEnumerable.cs" />
-    <Compile Include="Student.cs" />
-    <Compile Include="StudentWindow.xaml.cs">
+    <Compile Include="Student\StudentWindow.xaml.cs">
       <DependentUpon>StudentWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
@@ -107,7 +107,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StudentWindow.xaml">
+    <Page Include="Student\StudentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -151,10 +151,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DataBase.mdf">
+    <Content Include="DB\DataBase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="DataBase_log.ldf">
+    <Content Include="DB\DataBase_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>DataBase.mdf</DependentUpon>
     </Content>
