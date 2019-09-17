@@ -1,6 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Reflection;
+using static Database.ShowGrades;
 
 namespace Database
 {
@@ -39,6 +43,64 @@ namespace Database
                 connection.Open();
                 cmd.ExecuteNonQuery();
             }
-}
+        }
+
+
+        public static List<T> SqlSelect<T>() where T : new()
+        {
+            var list = new List<T>();
+            Type t = typeof(T);
+            if (t.GetCustomAttribute<DBTabAttribute>() == null) return null;
+            var prop = t.GetProperties().Where(p => p.GetCustomAttribute<DBCollAttribute>() != null).ToList();
+            var names = prop.Select(p => $"[{p.GetCustomAttribute<DBCollAttribute>().Name ?? p.Name}]").ToList();
+
+            using (var db = new SqlConnection(DBConectionString))
+            {
+                var cmd = db.CreateCommand();
+                cmd.CommandText = $"Select {string.Join(",", names)}From [dbo].[{t.Name}s]";
+                cmd.CommandType = CommandType.Text;
+                db.Open();
+                var res = cmd.ExecuteReader();
+                while (res.Read())
+                {
+                    var ob = new T();
+                    int i = 0;
+                    prop.ForEach(p => p.SetValue(ob, res[i++]));
+                    list.Add(ob);
+                }
+            }
+            return list;
+        }
+
+        public static List<T> SqlSelectByID<T>(object s) where T : new() 
+        {
+            //search id
+            var objectType = s.GetType();
+            var objectId = objectType.GetProperties().FirstOrDefault(x=>x.PropertyType==typeof(int));
+            var valueId=objectId?.GetValue(s);
+           
+            var list = new List<T>();
+            Type t = typeof(T);
+            if (t.GetCustomAttribute<DBTabAttribute>() == null) return null;
+            var prop = t.GetProperties().Where(p => p.GetCustomAttribute<DBCollAttribute>() != null).ToList();
+            var names = prop.Select(p => $"[{p.GetCustomAttribute<DBCollAttribute>().Name ?? p.Name}]").ToList();
+         
+            using (var db = new SqlConnection(DBConectionString))
+            {
+                var cmd = db.CreateCommand();
+                cmd.CommandText = $"Select {string.Join(",", names)}From [dbo].[{t.Name}s] Where {names[0]}={valueId}";
+                cmd.CommandType = CommandType.Text;
+                db.Open();
+                var res = cmd.ExecuteReader();
+                while (res.Read())
+                {
+                    var ob = new T();
+                    int i = 0;
+                    prop.ForEach(p => p.SetValue(ob, res[i++]));
+                    list.Add(ob);
+                }
+            }
+            return list;
+        }
     }
 }
