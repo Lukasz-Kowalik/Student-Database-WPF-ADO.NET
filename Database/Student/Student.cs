@@ -24,7 +24,7 @@ namespace Database
             FirstName = firstName;
             Faculty = faculty;
             StudentNo = studentNo;
-            Grades = new ObservableCollection<Grade>();
+            Grades = new List<Grade>();
         }
 
         public void AddGrad(Grade m)
