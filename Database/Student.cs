@@ -11,7 +11,7 @@ namespace Database
         public string FirstName { get; set; }
         public string Faculty { get; set; }
         public int StudentNo { get; set; }
-        private ObservableCollection<Grade> Grades { get; }
+        public List<Grade> Grades { get; set; }
    
         public Student()
         {
@@ -24,7 +24,7 @@ namespace Database
             FirstName = firstName;
             Faculty = faculty;
             StudentNo = studentNo;
-            Grades = new ObservableCollection<Grade>();
+            Grades = new List<Grade>();
         }
 
         public void AddGrad(Grade m)
@@ -32,9 +32,6 @@ namespace Database
             Grades.Add(m);
         }
 
-        public ObservableCollection<Grade> GetGrades()
-        {
-            return Grades;
-        }
+       
     }
 }

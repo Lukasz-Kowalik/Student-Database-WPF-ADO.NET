@@ -64,8 +64,13 @@ namespace Database
                 Student s = (Student)DG.SelectedItem;
                 ShowGrades grades = new ShowGrades(s);
                 grades.Show();
-                
+            }
+            else
+            {
+                ShowGrades grades = new ShowGrades();
+                grades.Show();
             }
         }
+   
     }
 }
