@@ -11,11 +11,19 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+<<<<<<< HEAD
+        <DataGrid x:Name="dgM" Margin="5" Grid.Column="0" Grid.Row="0" IsReadOnly="True" ItemsSource="{Binding Grades}" AutoGenerateColumns="False"   >
+
+            <DataGrid.Columns >
+                <DataGridTextColumn Header="Oceny" Binding="{Binding gradeValue}" Width="*"></DataGridTextColumn>
+            </DataGrid.Columns>
+=======
         <DataGrid x:Name="dgM" Margin="5" Grid.Column="0" Grid.Row="0" IsReadOnly="True"  AutoGenerateColumns="False"   >
 
             <!--<DataGrid.Columns >
                 --><!--<DataGridTextColumn Header="Oceny" Binding="{Binding Value}" Width="*"></DataGridTextColumn>--><!--
             </DataGrid.Columns>-->
+>>>>>>> ADO.NET
         
         </DataGrid>
         

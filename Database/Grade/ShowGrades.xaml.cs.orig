@@ -1,9 +1,14 @@
-using System;
+<<<<<<< HEAD
+﻿using System.Windows;
+using System.Windows.Controls;
+=======
+﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+>>>>>>> ADO.NET
 
 namespace Database
 {
@@ -12,11 +17,18 @@ namespace Database
     /// </summary>
     public partial class ShowGrades : Window
     {
+<<<<<<< HEAD
+      //  private Student student;
+=======
         //  private Student student;
+>>>>>>> ADO.NET
 
         public ShowGrades(Student student)
         {
             InitializeComponent();
+<<<<<<< HEAD
+            dgM.ItemsSource = student.GetGrades();
+=======
             var grades = DataBase.SqlSelectByID<Grade>(student);
             SetGread<Grade>(grades);
 
@@ -57,6 +69,7 @@ namespace Database
             }
          
             dgM.ItemsSource = list;
+>>>>>>> ADO.NET
             dgM.Items.Refresh();
         }
     }

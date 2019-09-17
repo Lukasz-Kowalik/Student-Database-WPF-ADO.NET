@@ -72,8 +72,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+<<<<<<< HEAD
+=======
     <Compile Include="DB\DataBase.cs" />
     <Compile Include="Student\Student.cs" />
+>>>>>>> ADO.NET
     <Compile Include="ToFile\LoadFile.xaml.cs" />
     <Compile Include="Grade\Grade.cs" />
     <Compile Include="Grade\GradeWindow.xaml.cs">
@@ -84,7 +87,12 @@
       <DependentUpon>ShowGrades.xaml</DependentUpon>
     </Compile>
     <Compile Include="ToFile\StreamEnumerable.cs" />
+<<<<<<< HEAD
+    <Compile Include="Student.cs" />
+    <Compile Include="StudentWindow.xaml.cs">
+=======
     <Compile Include="Student\StudentWindow.xaml.cs">
+>>>>>>> ADO.NET
       <DependentUpon>StudentWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
@@ -150,6 +158,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+<<<<<<< HEAD
+  <ItemGroup />
+=======
   <ItemGroup>
     <Content Include="DB\DataBase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -159,5 +170,6 @@
       <DependentUpon>DataBase.mdf</DependentUpon>
     </Content>
   </ItemGroup>
+>>>>>>> ADO.NET
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -11,7 +11,11 @@ namespace Database
         public string FirstName { get; set; }
         public string Faculty { get; set; }
         public int StudentNo { get; set; }
+<<<<<<< HEAD:Database/Student.cs
         private ObservableCollection<Grade> Grades { get; }
+=======
+        public List<Grade> Grades { get; set; }
+>>>>>>> ADO.NET:Database/Student/Student.cs
    
         public Student()
         {
@@ -32,9 +36,13 @@ namespace Database
             Grades.Add(m);
         }
 
+<<<<<<< HEAD:Database/Student.cs
         public ObservableCollection<Grade> GetGrades()
         {
             return Grades;
         }
+=======
+       
+>>>>>>> ADO.NET:Database/Student/Student.cs
     }
 }
