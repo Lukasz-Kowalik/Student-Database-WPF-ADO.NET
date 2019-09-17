@@ -11,7 +11,6 @@ namespace Database
     internal static class DataBase
     {
         private static string DBConectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=P:\dev\Visual Studio programs\Database\Database\DataBase.mdf;Integrated Security=True";
-        private const string DBName = "[P:\\DEV\\VISUAL STUDIO PROGRAMS\\DATABASE\\DATABASE\\DATABASE.MDF].[dbo].[Students]";
         public static List<Student> SqlStudentSelect()
         {
             var students = new List<Student>();
@@ -19,7 +18,7 @@ namespace Database
             {
                 var cmd = connection.CreateCommand();
 
-                cmd.CommandText = $"Select [StudentNo],[FirstName],[SurName],[Faculty] FROM {DBName}";
+                cmd.CommandText = $"Select [StudentNo],[FirstName],[SurName],[Faculty] FROM [dbo].[Students]";
 
                 cmd.CommandType = CommandType.Text;
 
@@ -34,11 +33,12 @@ namespace Database
             }
             return students;
         }
-        public static void SqlStudentInsert(Student student) {
-            using (var connection =new SqlConnection(DBConectionString))
+        public static void SqlStudentInsert(Student student)
+        {
+            using (var connection = new SqlConnection(DBConectionString))
             {
                 var cmd = connection.CreateCommand();
-                cmd.CommandText = $"insert into {DBName} (StudentNo,Firstname,Surname,Faculty) values ('{student.StudentNo}','{student.FirstName}','{student.SurName}','{student.Faculty}');";
+                cmd.CommandText = $"insert into [dbo].[Students] (StudentNo,Firstname,Surname,Faculty) values ('{student.StudentNo}','{student.FirstName}','{student.SurName}','{student.Faculty}');";
                 cmd.CommandType = CommandType.Text;
                 connection.Open();
                 cmd.ExecuteNonQuery();
@@ -103,4 +103,5 @@ namespace Database
             return list;
         }
     }
+
 }
