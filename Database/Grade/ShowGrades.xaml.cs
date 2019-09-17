@@ -1,5 +1,9 @@
-﻿using System.Windows;
+﻿using System;
+using System.Collections.Generic;
+using System.Reflection;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace Database
 {
@@ -8,12 +12,51 @@ namespace Database
     /// </summary>
     public partial class ShowGrades : Window
     {
-      //  private Student student;
+        //  private Student student;
 
         public ShowGrades(Student student)
         {
             InitializeComponent();
-            dgM.ItemsSource = student.GetGrades();
+            var grades = DataBase.SqlSelectByID<Grade>(student);
+            SetGread<Grade>(grades);
+
+        }
+        public ShowGrades()
+        {
+            InitializeComponent();
+            var grades = DataBase.SqlSelect<Grade>();
+            SetGread<Grade>(grades);
+
+        }
+
+        [System.AttributeUsage(System.AttributeTargets.Class)]
+        public class DBTabAttribute : System.Attribute
+        {
+            public String Name { get; set; }
+        }
+        [System.AttributeUsage(System.AttributeTargets.Property)]
+        public class DBCollAttribute : System.Attribute
+        {
+            public String Title { get; set; }
+            public String Name { get; set; }
+            public String ForeignKey { get; set; }
+        }
+
+        public void SetGread<T>(List<T> list)
+        {
+            Type t = typeof(T);
+            if (t.GetCustomAttribute<DBTabAttribute>() == null)
+                return;
+            foreach (var p in t.GetProperties())
+            {
+                var coll = p.GetCustomAttribute<DBCollAttribute>();
+                if (coll != null)
+                {
+                    dgM.Columns.Add(new DataGridTextColumn() { Header = coll.Title ?? p.Name, Binding = new Binding(p.Name) });
+                }
+            }
+         
+            dgM.ItemsSource = list;
             dgM.Items.Refresh();
         }
     }
