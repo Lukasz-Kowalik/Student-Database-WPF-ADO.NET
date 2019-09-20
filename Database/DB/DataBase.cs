@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 using System.Linq;
 using System.Reflection;
 using static Database.ShowGrades;
@@ -10,11 +11,12 @@ namespace Database
 {
     internal static class DataBase
     {
-        private static string DBConectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=P:\dev\Visual Studio programs\Database\Database\DB\DataBase.mdf;Integrated Security=True";
+       
+       private static string _connection =ConfigurationManager.ConnectionStrings["Students"].ConnectionString;
         public static List<Student> SqlStudentSelect()
         {
             var students = new List<Student>();
-            using (var connection = new SqlConnection(DBConectionString))
+            using (var connection = new SqlConnection(_connection))
             {
                 var cmd = connection.CreateCommand();
 
@@ -35,7 +37,7 @@ namespace Database
         }
         public static void SqlStudentInsert(Student student)
         {
-            using (var connection = new SqlConnection(DBConectionString))
+            using (var connection = new SqlConnection(_connection))
             {
               var query= $"insert into [dbo].[Students] (StudentNo,Firstname,Surname,Faculty) values (@StudentNo,@FirstName,@SurName,@Faculty);";
                 var command = new SqlCommand(query,connection);
@@ -57,7 +59,7 @@ namespace Database
             var prop = t.GetProperties().Where(p => p.GetCustomAttribute<DBCollAttribute>() != null).ToList();
             var names = prop.Select(p => $"[{p.GetCustomAttribute<DBCollAttribute>().Name ?? p.Name}]").ToList();
 
-            using (var db = new SqlConnection(DBConectionString))
+            using (var db = new SqlConnection(_connection))
             {
                 var cmd = db.CreateCommand();
                 cmd.CommandText = $"Select {string.Join(",", names)}From [dbo].[{t.Name}s]";
@@ -88,7 +90,7 @@ namespace Database
             var prop = t.GetProperties().Where(p => p.GetCustomAttribute<DBCollAttribute>() != null).ToList();
             var names = prop.Select(p => $"[{p.GetCustomAttribute<DBCollAttribute>().Name ?? p.Name}]").ToList();
          
-            using (var db = new SqlConnection(DBConectionString))
+            using (var db = new SqlConnection(_connection))
             {
                 var cmd = db.CreateCommand();
                 cmd.CommandText = $"Select {string.Join(",", names)}From [dbo].[{t.Name}s] Where {names[0]}={valueId}";
