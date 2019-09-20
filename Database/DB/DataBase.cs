@@ -37,11 +37,14 @@ namespace Database
         {
             using (var connection = new SqlConnection(DBConectionString))
             {
-                var cmd = connection.CreateCommand();
-                cmd.CommandText = $"insert into [dbo].[Students] (StudentNo,Firstname,Surname,Faculty) values ('{student.StudentNo}','{student.FirstName}','{student.SurName}','{student.Faculty}');";
-                cmd.CommandType = CommandType.Text;
+              var query= $"insert into [dbo].[Students] (StudentNo,Firstname,Surname,Faculty) values (@StudentNo,@FirstName,@SurName,@Faculty);";
+                var command = new SqlCommand(query,connection);
+                command.Parameters.AddWithValue("@StudentNo", student.StudentNo);
+                command.Parameters.AddWithValue("@FirstName", student.FirstName);
+                command.Parameters.AddWithValue("@SurName", student.SurName);
+                command.Parameters.AddWithValue("@Faculty", student.Faculty);
                 connection.Open();
-                cmd.ExecuteNonQuery();
+                command.ExecuteNonQuery();
             }
         }
 
