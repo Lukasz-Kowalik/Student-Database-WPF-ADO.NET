@@ -1,4 +1,4 @@
-# Student-Database-WPF-ADO.NET
+# Student-Manager
 
 ![](Images/MainWindow.png)
 
